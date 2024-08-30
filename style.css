@@ -1,0 +1,45 @@
+body{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: #181A1B;
+    color: white;
+}
+
+#proa {
+    color: cyan;
+}
+
+#btn-iniciar {
+    width: 400px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
+
+#input-iniciar {
+    border: none;
+    background-color: white;
+    width: 400px;
+    height: 40px;
+    border-radius: 10px;
+    padding-left: 20px;
+    font-size: 1.2rem;
+}
+
+#input-senha {
+    border: none;
+    background-color: white;
+    width: 400px;
+    height: 40px;
+    border-radius: 10px;
+    padding-left: 20px;
+    font-size: 1.2rem;
+}
+
+

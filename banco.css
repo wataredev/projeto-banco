@@ -1,0 +1,153 @@
+body {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: #181A1B;
+    color: white;
+}
+
+h1{
+    padding-left: 23px;
+    color: cyan;
+}
+
+.container-main {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    width: 50%;
+}
+
+
+.ordenada {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+
+.escolhas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: white 2px solid;
+    width: 400px;
+    height: 50px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.escolhas:hover {
+    background-color: #222527e4;
+}
+
+
+.container-verSaldo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: white 2px solid;
+    width: 30%;
+    height: 600px;
+    border-radius: 10px;
+    flex-direction: column;
+    font-size: 1.5rem;
+    display: none;
+}
+
+.container-sacar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: white 2px solid;
+    width: 30%;
+    height: 600px;
+    border-radius: 10px;
+    flex-direction: column;
+    font-size: 1.5rem;
+    display: none;
+}
+
+.botaoSacar {
+    width: 150px;
+    height: 45px;
+    border-radius: 10px;
+}
+
+.containerBotaoSacar {
+    display: flex;
+    gap: 50px;
+    padding: 5%;
+}
+
+.container-extrato {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: white 2px solid;
+    width: 30%;
+    height: 600px;
+    border-radius: 10px;
+    flex-direction: column;
+    font-size: 1.5rem;
+    display: none;
+}
+
+.container-depositar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: white 2px solid;
+    width: 30%;
+    height: 600px;
+    border-radius: 10px;
+    flex-direction: column;
+    font-size: 1.5rem;
+    display: none;
+}
+
+.container-transferir {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: white 2px solid;
+    width: 30%;
+    height: 600px;
+    border-radius: 10px;
+    flex-direction: column;
+    font-size: 1.5rem;
+    display: none;
+}
+
+::placeholder {
+    text-align: center;
+    padding-top: 35%;
+    font-size: 1.5rem;
+}
+
+
+#valorDisponivel {
+    width: 100%;
+    height: 80%;
+    outline: none;
+}
+
+
+
+#sair {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: 50px;
+    border: white 2px solid;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bolder;  
+    color: white; 
+}
