@@ -1,72 +1,78 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banco PROA</title>
-    <script src="banco.js" defer></script>
-    <link rel="stylesheet" href="banco.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banco PROA</title>
+  <script src="https://code.responsivevoice.org/responsivevoice.js?key=5AgyBzJj" defer></script>
+  <script src="banco.js" defer></script>
+  <link rel="stylesheet" href="banco.css">
 </head>
+
 <body>
-    <div class="container-main">
-        <h1>Seja Bem-Vindo</h1>
-        <div class="botoes">
-            <button type="button"class="escolhas" id="verSaldo" onclick="verSaldo()">Ver Saldo</button>
-            <button type="button"class="escolhas" onclick="sacar()">Sacar</button>
-            <button type="button"class="escolhas" onclick="verExtrato()">Ver Extrato</button>
-            <button type="button"class="escolhas" onclick="depositar()">Depositar</button>
-            <button type="button"class="escolhas" onclick="transferir()">Transferência</button>
-            <div id="div-sair">
-                <a id="sair" href="index.html">Sair</a>
-            </div>
-        </div>
+  <div class="container-main">
+    <h1></h1>
+    <div class="botoes">
+      <button type="button" class="escolhas" id="verSaldo" onclick="verSaldo()">Ver Saldo</button>
+      <button type="button" class="escolhas" onclick="sacar()">Sacar</button>
+      <button type="button" class="escolhas" onclick="verExtrato()">Ver Extrato</button>
+      <button type="button" class="escolhas" onclick="depositar()">Depositar</button>
+      <button type="button" class="escolhas" onclick="transferir()">Transferência</button>
+      <div id="div-sair">
+        <a id="sair" href="index.html">Sair</a>
+      </div>
     </div>
-    <div class="container-inicial">
-        <p id="p-proa">BANCO PROA</p>
-        <img src="proaimg.svg" alt="icon-proa" width="350px">
+  </div>
+  <div class="container-inicial">
+    <p id="p-proa">BANCO PROA</p>
+    <img src="proaimg.svg" alt="icon-proa" width="350px">
+  </div>
+  <div class="container-verSaldo">
+    <p class="p-saldo">Saldo</p>
+    <textarea name="valor" id="valorDisponivel" style="resize: none;" placeholder="Saldo: 5000" readonly></textarea>
+    <div class="containerBotaoAcao">
+      <button class="botao-acao" onclick="botaoVoltar()">Voltar</button>
     </div>
-    <div class="container-verSaldo">
-        <p class="p-saldo">Saldo</p>
-        <textarea name="valor" id="valorDisponivel" style="resize: none;" placeholder="Saldo: 5000" readonly></textarea>
-        <div class="containerBotaoAcao">
-            <button class="botao-acao" onclick="botaoVoltar()">Voltar</button>
-        </div>
+  </div>
+  <div class="container-sacar">
+    <p class="p-saldo">Sacar</p>
+    <textarea name="valor" id="valorDisponivel" class="textSacar" style="resize: none;"
+      placeholder="Digite o valor aqui"></textarea>
+    <div class="containerBotaoAcao">
+      <button class="botao-acao" onclick="sacarDinheiro()">Sacar</button>
+      <button class="botao-acao" onclick="botaoVoltar()">Voltar</button>
     </div>
-    <div class="container-sacar">
-        <p class="p-saldo">Sacar</p>
-        <textarea name="valor" id="valorDisponivel" class="textSacar" style="resize: none;" placeholder="Digite o valor aqui"></textarea>
-        <div class="containerBotaoAcao">
-            <button class="botao-acao" onclick="sacarDinheiro()">Sacar</button>
-            <button class="botao-acao" onclick="botaoVoltar()">Voltar</button>
-        </div>
+  </div>
+  <div class="container-extrato">
+    <p>Extrato</p>
+    <ul>
+      <li>Depósito: R$10</li>
+      <li>Compra de R$25 na Crunchyroll</li>
+      <li>Saque de R$20 realizado</li>
+      <li>Compra de R$30 realizado no SENAC</li>
+    </ul>
+    <div class="containerBotaoAcao">
+      <button class="botao-acao" onclick="botaoVoltar()">Voltar</button>
     </div>
-    <div class="container-extrato">
-        <p>Extrato</p>
-        <ul>
-            <li>Depósito: R$10</li>
-            <li>Compra de R$25 na Crunchyroll</li>
-            <li>Saque de R$20 realizado</li>
-            <li>Compra de R$30 realizado no SENAC</li>
-        </ul>
-        <div class="containerBotaoAcao">
-            <button class="botao-acao" onclick="botaoVoltar()">Voltar</button>
-        </div>
+  </div>
+  <div class="container-depositar">
+    <p class="p-saldo">Depositar</p>
+    <textarea name="valor" id="valorDisponivel" style="resize: none;" placeholder="Digite o valor aqui"
+      class="textDepositar"></textarea>
+    <div class="containerBotaoAcao">
+      <button class="botao-acao" onclick="depositarDinheiro()">Depositar</button>
+      <button class="botao-acao" onclick="botaoVoltar()">Voltar</button>
     </div>
-    <div class="container-depositar">
-        <p class="p-saldo">Depositar</p>
-        <textarea name="valor" id="valorDisponivel" style="resize: none;" placeholder="Digite o valor aqui" class="textDepositar"></textarea>
-        <div class="containerBotaoAcao">
-            <button class="botao-acao" onclick="depositarDinheiro()">Depositar</button>
-            <button class="botao-acao" onclick="botaoVoltar()">Voltar</button>
-        </div>
+  </div>
+  <div class="container-transferir">
+    <p class="p-saldo">Transferência</p>
+    <textarea name="valor" id="valorDisponivel" style="resize: none;" placeholder="Digite o valor aqui"></textarea>
+    <div class="containerBotaoAcao">
+      <button class="botao-acao">Transferir</button>
+      <button class="botao-acao" onclick="botaoVoltar()">Voltar</button>
     </div>
-    <div class="container-transferir">
-        <p class="p-saldo">Transferência</p>
-        <textarea name="valor" id="valorDisponivel" style="resize: none;" placeholder="Digite o valor aqui"></textarea>
-        <div class="containerBotaoAcao">
-            <button class="botao-acao">Transferir</button>
-            <button class="botao-acao" onclick="botaoVoltar()">Voltar</button>
-        </div>
-    </div>
+  </div>
 </body>
+
 </html>
