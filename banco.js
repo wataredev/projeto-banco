@@ -28,8 +28,11 @@ function verExtrato() {
 }
 
 function addExtrato(info) {
+  let data = new Date();
+  
+  let strData = `${data.getDate()}/${data.getMonth()+1}/${data.getFullYear()} ${data.getHours()}:${data.getMinutes()}`;
   const p = document.createElement("li");
-  p.textContent = info;
+  p.textContent = info + " em " + strData;
   const lista = document.querySelector(".lista-extrato");
   lista.appendChild(p);
 }
@@ -82,7 +85,7 @@ function depositarDinheiro() {
     textDepositar.value = "";
     textDepositar.placeholder = "Deposito realizado"
     responsiveVoice.speak(textDepositar.placeholder, 'Brazilian Portuguese Female', { rate: 1.1 });
-    const info = `Deposito de R$${valorDepositar} realizado com sucesso`;
+    const info = `Deposito de R$${valorDepositar} realizado`;
     addExtrato(info);
   }
 }
