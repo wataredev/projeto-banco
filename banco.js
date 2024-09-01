@@ -43,7 +43,7 @@ function sacarDinheiro() {
         dinheiroTotal -= valorDisponivel;
         atualizarSaldo(dinheiroTotal)
         textarea.value = "";
-        textarea.placeholder = "Saque realizado com sucesso"
+        textarea.placeholder = "Saque realizado"
     } else {
         textarea.value = "";
         textarea.placeholder = "Saldo insuficiente";
@@ -61,28 +61,9 @@ function depositarDinheiro() {
         dinheiroTotal += valorDepositar;
         atualizarSaldo(dinheiroTotal);
         textDepositar.value = "";
-        textDepositar.placeholder = "Deposito realizado com sucesso"
+        textDepositar.placeholder = "Deposito realizado"
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function esconder() {
@@ -91,4 +72,10 @@ function esconder() {
     document.querySelector(".container-extrato").style.display = "none";
     document.querySelector(".container-depositar").style.display = "none";
     document.querySelector(".container-transferir").style.display = "none";
+    document.querySelector(".container-inicial").style.display = "none";
+}
+
+function botaoVoltar() {
+    esconder()
+    document.querySelector(".container-inicial").style.display = "flex";
 }
