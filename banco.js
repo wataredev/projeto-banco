@@ -27,6 +27,13 @@ function verExtrato() {
   document.querySelector(".container-extrato").style.display = "flex";
 }
 
+function addExtrato(info) {
+  const p = document.createElement("li");
+  p.textContent = info;
+  const lista = document.querySelector(".lista-extrato");
+  lista.appendChild(p);
+}
+
 function depositar() {
   esconder()
   document.querySelector(".container-depositar").style.display = "flex";
@@ -52,6 +59,8 @@ function sacarDinheiro() {
     textarea.value = "";
     textarea.placeholder = "Saque realizado"
     responsiveVoice.speak(textarea.placeholder, 'Brazilian Portuguese Female', { rate: 1.1 });
+    const info = `Saque de R$${valorDisponivel} realizado`;
+    addExtrato(info);
   } else {
     textarea.value = "";
     textarea.placeholder = "Saldo insuficiente";
@@ -73,6 +82,8 @@ function depositarDinheiro() {
     textDepositar.value = "";
     textDepositar.placeholder = "Deposito realizado"
     responsiveVoice.speak(textDepositar.placeholder, 'Brazilian Portuguese Female', { rate: 1.1 });
+    const info = `Deposito de R$${valorDepositar} realizado com sucesso`;
+    addExtrato(info);
   }
 }
 
