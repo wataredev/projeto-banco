@@ -9,7 +9,7 @@ responsiveVoice.speak(textoBoasVindas, 'Brazilian Portuguese Female', { rate: 1.
 
 function atualizarSaldo(valor) {
   let textarea = document.querySelector("#valorDisponivel");
-  textarea.placeholder = `Saldo: ${valor}`;
+  textarea.placeholder = `Saldo: R$${valor}`;
 }
 
 function verSaldo() {
@@ -52,9 +52,9 @@ function transferir() {
 }
 
 function formatarTexto(bancos, conta, valor) {
-    bancos.value = "";
-    conta.value = "";
-    valor.value = "";
+  bancos.value = "";
+  conta.value = "";
+  valor.value = "";
 }
 
 function narradora(variavel) {
@@ -73,15 +73,17 @@ function transferirDinheiro() {
     conta.placeholder = "Digite novamente";
     bancos.placeholder = "Digite novamente";
     valor.placeholder = "Transferência não realizada";
-    narradora(valor);
-  }  else {
+    narradora(valor); ``
+  } else {
     dinheiroTotal -= valorRecebido;
-    atualizarSaldo(dinheiroTotal);
+    let saldoConvertido = dinheiroTotal.toFixed(2).replace('.', ',');
+    atualizarSaldo(saldoConvertido);
     formatarTexto(bancos, conta, valor);
-    conta.placeholder = `Conta : ${contaRecebida}`;
+    conta.placeholder = "Digite uma conta destino";
     bancos.placeholder = "";
     valor.placeholder = "Transferência Realizada";
-    let info = `Transferência para conta ${contaRecebida} no banco ${bancosRecebidos} no valor de ${valorRecebido}`
+    let valorConvertido = valorRecebido.toFixed(2).replace('.', ',');
+    let info = `Transferência para conta ${contaRecebida} no banco ${bancosRecebidos} no valor de R$${valorConvertido}`
     narradora(valor);
     addExtrato(info)
   }
@@ -97,11 +99,13 @@ function sacarDinheiro() {
     narradora(textarea);
   } else if (valorDisponivel <= dinheiroTotal) {
     dinheiroTotal -= valorDisponivel;
-    atualizarSaldo(dinheiroTotal)
+    let saldoConvertido = dinheiroTotal.toFixed(2).replace('.', ',');
+    atualizarSaldo(saldoConvertido)
     textarea.value = "";
     textarea.placeholder = "Saque realizado"
     narradora(textarea);
-    const info = `Saque de R$${valorDisponivel} realizado`;
+    let valorConvertido = valorDisponivel.toFixed(2).replace('.', ',');
+    const info = `Saque de R$${valorConvertido} realizado`;
     addExtrato(info);
   } else {
     textarea.value = "";
@@ -120,11 +124,13 @@ function depositarDinheiro() {
     responsiveVoice.speak(textDepositar.placeholder, 'Brazilian Portuguese Female', { rate: 1.1 });
   } else {
     dinheiroTotal += valorDepositar;
-    atualizarSaldo(dinheiroTotal);
+    let saldoConvertido = dinheiroTotal.toFixed(2).replace('.', ',');
+    atualizarSaldo(saldoConvertido);
     textDepositar.value = "";
     textDepositar.placeholder = "Depósito realizado"
     responsiveVoice.speak(textDepositar.placeholder, 'Brazilian Portuguese Female', { rate: 1.1 });
-    const info = `Depósito de R$${valorDepositar} realizado`;
+    let valorConvertido = valorDepositar.toFixed(2).replace('.', ',');
+    const info = `Depósito de R$${valorConvertido} realizado`;
     addExtrato(info);
   }
 }
@@ -144,14 +150,14 @@ function botaoVoltar() {
   document.querySelector(".container-inicial").style.display = "flex";
 }
 
-document.getElementById("banco-destino").addEventListener("change", function() {
+document.getElementById("banco-destino").addEventListener("change", function () {
   let opcaoSelecionada = this.options[this.selectedIndex];
   const iconeUrl = opcaoSelecionada.getAttribute('data-icon');
-  
+
   this.style.backgroundImage = `url('${iconeUrl}')`;
 });
 
-document.getElementById("botao-transferir").addEventListener("click", function() {
+document.getElementById("botao-transferir").addEventListener("click", function () {
   let elemetoSelecionado = document.getElementById('banco-destino');
   elemetoSelecionado.style.backgroundImage = 'none';
 });

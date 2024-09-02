@@ -31,7 +31,8 @@
   </div>
   <div class="container-verSaldo">
     <p class="p-saldo">Saldo</p>
-    <textarea name="valor" id="valorDisponivel" style="resize: none;" placeholder="Saldo: 5000" readonly></textarea>
+    <textarea name="valor" id="valorDisponivel" style="resize: none;" placeholder="Saldo: R$5000,00"
+      readonly></textarea>
     <div class="containerBotaoAcao">
       <button class="botao-acao" onclick="botaoVoltar()">Voltar</button>
     </div>
@@ -85,8 +86,10 @@
       <option value="mercado-pago" data-icon="./assets/medias/icons-bancos/mercado-pago.svg">Mercado Pago</option>
       <option value="inter" data-icon="./assets/medias/icons-bancos/inter.svg">Inter</option>
     </select>
-    <input type="number" name="contaDestino" class="transferencia-input" id="conta-destino" min="1" max="999" placeholder="Digite uma conta destino">
-    <input type="number" name="contaDestino" class="transferencia-input" id="valor-transferencia" min="1" placeholder="Digite um valor">
+    <input type="number" name="contaDestino" class="transferencia-input" id="conta-destino" min="1" max="999"
+      placeholder="Digite uma conta destino">
+    <input type="number" name="contaDestino" class="transferencia-input" id="valor-transferencia" min="1"
+      placeholder="Digite um valor">
     <div class="containerBotaoAcao">
       <button class="botao-acao" id="botao-transferir" onclick="transferirDinheiro()">Transferir</button>
       <button class="botao-acao" onclick="botaoVoltar()">Voltar</button>
