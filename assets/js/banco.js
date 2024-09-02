@@ -29,12 +29,16 @@ function verExtrato() {
 
 function addExtrato(info) {
   let data = new Date();
-  
+
   let strData = `${String(data.getDate()).padStart(2, '0')}/${String(data.getMonth() + 1).padStart(2, '0')}/${data.getFullYear()} ${String(data.getHours()).padStart(2, '0')}:${String(data.getMinutes()).padStart(2, '0')}`;
   const p = document.createElement("li");
   p.textContent = info + " em " + strData;
   const lista = document.querySelector(".lista-extrato");
   lista.appendChild(p);
+}
+
+function botaoLimpar() {
+  document.querySelector("ul").innerHTML = "";
 }
 
 function depositar() {
@@ -74,7 +78,7 @@ function transferirDinheiro() {
     dinheiroTotal -= valorRecebido;
     atualizarSaldo(dinheiroTotal);
     formatarTexto(bancos, conta, valor);
-    conta.placeholder = "";
+    conta.placeholder = `Conta : ${contaRecebida}`;
     bancos.placeholder = "";
     valor.placeholder = "Transferência Realizada";
     let info = `Transferência para conta ${contaRecebida} no banco ${bancosRecebidos} no valor de ${valorRecebido}`
@@ -139,4 +143,18 @@ function botaoVoltar() {
   esconder()
   document.querySelector(".container-inicial").style.display = "flex";
 }
+
+document.getElementById("banco-destino").addEventListener("change", function() {
+  let opcaoSelecionada = this.options[this.selectedIndex];
+  const iconeUrl = opcaoSelecionada.getAttribute('data-icon');
+  
+  this.style.backgroundImage = `url('${iconeUrl}')`;
+});
+
+document.getElementById("botao-transferir").addEventListener("click", function() {
+  let elemetoSelecionado = document.getElementById('banco-destino');
+  elemetoSelecionado.style.backgroundImage = 'none';
+});
+
+
 

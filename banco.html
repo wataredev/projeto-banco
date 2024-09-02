@@ -45,14 +45,24 @@
       <button class="botao-acao" onclick="botaoVoltar()">Voltar</button>
     </div>
   </div>
+
+
+
+
   <div class="container-extrato">
     <p>Extrato</p>
     <ul class="lista-extrato">
     </ul>
     <div class="containerBotaoAcao">
       <button class="botao-acao" onclick="botaoVoltar()">Voltar</button>
+      <button class="botao-acao" onclick="botaoLimpar()">Limpar</button>
     </div>
   </div>
+
+
+
+
+
   <div class="container-depositar">
     <p class="p-saldo">Depositar</p>
     <textarea name="valor" id="valorDisponivel" style="resize: none;" placeholder="Digite o valor aqui"
@@ -64,21 +74,21 @@
   </div>
   <div class="container-transferir">
     <p class="p-saldo">Transferência</p>
-    <input list="bancos" class="transferencia-input" id="banco-destino" placeholder="Escolha o banco do destinatário">
-    <datalist id="bancos">
-      <option value="Nubank"></option>
-      <option value="Itau"></option>
-      <option value="Bradesco"></option>
-      <option value="Caixa"></option>
-      <option value="BMG"></option>
-      <option value="Santander"></option>
-      <option value="Mercado Pago"></option>
-      <option value="Inter"></option>
-    </datalist>
+    <select class="transferencia-input" id="banco-destino" placeholder="Escolha o banco">
+      <option value="" disabled selected>Escolha o banco</option>
+      <option value="nubank" data-icon="./assets/medias/icons-bancos/nubank.svg">Nubank</option>
+      <option value="itau" data-icon="./assets/medias/icons-bancos/itau.svg">Itaú</option>
+      <option value="bradesco" data-icon="./assets/medias/icons-bancos/bradesco.svg">Bradesco</option>
+      <option value="caixa" data-icon="./assets/medias/icons-bancos/caixa.svg">Caixa</option>
+      <option value="bmg" data-icon="./assets/medias/icons-bancos/bmg.svg">BMG</option>
+      <option value="santander" data-icon="./assets/medias/icons-bancos/santander.svg">Santander</option>
+      <option value="mercado-pago" data-icon="./assets/medias/icons-bancos/mercado-pago.svg">Mercado Pago</option>
+      <option value="inter" data-icon="./assets/medias/icons-bancos/inter.svg">Inter</option>
+    </select>
     <input type="number" name="contaDestino" class="transferencia-input" id="conta-destino" min="1" max="999" placeholder="Digite uma conta destino">
     <input type="number" name="contaDestino" class="transferencia-input" id="valor-transferencia" min="1" placeholder="Digite um valor">
     <div class="containerBotaoAcao">
-      <button class="botao-acao" onclick="transferirDinheiro()">Transferir</button>
+      <button class="botao-acao" id="botao-transferir" onclick="transferirDinheiro()">Transferir</button>
       <button class="botao-acao" onclick="botaoVoltar()">Voltar</button>
     </div>
   </div>
