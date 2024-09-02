@@ -30,7 +30,7 @@ function verExtrato() {
 function addExtrato(info) {
   let data = new Date();
   
-  let strData = `${data.getDate()}/${data.getMonth()+1}/${data.getFullYear()} ${data.getHours()}:${data.getMinutes()}`;
+  let strData = `${String(data.getDate()).padStart(2, '0')}/${String(data.getMonth() + 1).padStart(2, '0')}/${data.getFullYear()} ${String(data.getHours()).padStart(2, '0')}:${String(data.getMinutes()).padStart(2, '0')}`;
   const p = document.createElement("li");
   p.textContent = info + " em " + strData;
   const lista = document.querySelector(".lista-extrato");
@@ -53,6 +53,10 @@ function formatarTexto(bancos, conta, valor) {
     valor.value = "";
 }
 
+function narradora(variavel) {
+  responsiveVoice.speak(variavel.placeholder, 'Brazilian Portuguese Female', { rate: 1.1 });
+}
+
 function transferirDinheiro() {
   let bancos = document.querySelector("#banco-destino");
   let conta = document.querySelector("#conta-destino");
@@ -60,19 +64,13 @@ function transferirDinheiro() {
   let valorRecebido = parseFloat(valor.value);
   let bancosRecebidos = bancos.value;
   let contaRecebida = conta.value;
-  if (bancos.value.length == 0 || conta.value.length == 0 || !valorRecebido) {
+  if (!bancosRecebidos || !contaRecebida || !valorRecebido || valorRecebido <= 0 || isNaN(valorRecebido) || valorRecebido > dinheiroTotal) {
     formatarTexto(bancos, conta, valor);
+    conta.placeholder = "Digite novamente";
+    bancos.placeholder = "Digite novamente";
     valor.placeholder = "Transferência não realizada";
-    conta.placeholder = "Digite novamente";
-    bancos.placeholder = "Digite novamente";
-    responsiveVoice.speak(valor.placeholder, 'Brazilian Portuguese Female', { rate: 1.1 });
-  } else if (valorRecebido <= 0 || isNaN(valorRecebido)) {
-    formatarTexto(bancos, conta, valor);
-    conta.placeholder = "Digite novamente";
-    bancos.placeholder = "Digite novamente";
-    valor.placeholder = "Valor inválido ou vazio";
-    responsiveVoice.speak(valor.placeholder, 'Brazilian Portuguese Female', { rate: 1.1 });
-  } else {
+    narradora(valor);
+  }  else {
     dinheiroTotal -= valorRecebido;
     atualizarSaldo(dinheiroTotal);
     formatarTexto(bancos, conta, valor);
@@ -80,7 +78,7 @@ function transferirDinheiro() {
     bancos.placeholder = "";
     valor.placeholder = "Transferência Realizada";
     let info = `Transferência para conta ${contaRecebida} no banco ${bancosRecebidos} no valor de ${valorRecebido}`
-    responsiveVoice.speak(valor.placeholder, 'Brazilian Portuguese Female', { rate: 1.1 });
+    narradora(valor);
     addExtrato(info)
   }
 }
@@ -92,19 +90,19 @@ function sacarDinheiro() {
   if (isNaN(valorDisponivel) || !valorDisponivel || valorDisponivel <= 0) {
     textarea.value = "";
     textarea.placeholder = "Valor inválido ou Vazio"
-    responsiveVoice.speak(textarea.placeholder, 'Brazilian Portuguese Female', { rate: 1.1 });
+    narradora(textarea);
   } else if (valorDisponivel <= dinheiroTotal) {
     dinheiroTotal -= valorDisponivel;
     atualizarSaldo(dinheiroTotal)
     textarea.value = "";
     textarea.placeholder = "Saque realizado"
-    responsiveVoice.speak(textarea.placeholder, 'Brazilian Portuguese Female', { rate: 1.1 });
+    narradora(textarea);
     const info = `Saque de R$${valorDisponivel} realizado`;
     addExtrato(info);
   } else {
     textarea.value = "";
     textarea.placeholder = "Saldo insuficiente";
-    responsiveVoice.speak(textarea.placeholder, 'Brazilian Portuguese Female', { rate: 1.1 });
+    narradora(textarea);
   }
 }
 
