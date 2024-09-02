@@ -6,8 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Banco PROA</title>
   <script src="https://code.responsivevoice.org/responsivevoice.js?key=5AgyBzJj" defer></script>
-  <script src="banco.js" defer></script>
-  <link rel="stylesheet" href="banco.css">
+  <script src="./assets/js/banco.js" defer></script>
+  <link rel="stylesheet" href="./assets/css/banco.css">
+  <link type="image/png" sizes="16x16" rel="icon" href="./assets/medias/icons8-galinha-16.png">
 </head>
 
 <body>
@@ -26,7 +27,7 @@
   </div>
   <div class="container-inicial">
     <p id="p-proa">BANCO PROA</p>
-    <img src="proaimg.svg" alt="icon-proa" width="350px">
+    <img src="./assets/medias/proaimg.svg" alt="icon-proa" width="350px">
   </div>
   <div class="container-verSaldo">
     <p class="p-saldo">Saldo</p>
@@ -63,9 +64,21 @@
   </div>
   <div class="container-transferir">
     <p class="p-saldo">Transferência</p>
-    <textarea name="valor" id="valorDisponivel" style="resize: none;" placeholder="Digite o valor aqui"></textarea>
+    <input list="bancos" class="transferencia-input" id="banco-destino" placeholder="Escolha o banco do destinatário">
+    <datalist id="bancos">
+      <option value="Nubank"></option>
+      <option value="Itau"></option>
+      <option value="Bradesco"></option>
+      <option value="Caixa"></option>
+      <option value="BMG"></option>
+      <option value="Santander"></option>
+      <option value="Mercado Pago"></option>
+      <option value="Inter"></option>
+    </datalist>
+    <input type="number" name="contaDestino" class="transferencia-input" id="conta-destino" min="1" max="999" placeholder="Digite uma conta destino">
+    <input type="number" name="contaDestino" class="transferencia-input" id="valor-transferencia" min="1" placeholder="Digite um valor">
     <div class="containerBotaoAcao">
-      <button class="botao-acao">Transferir</button>
+      <button class="botao-acao" onclick="transferirDinheiro()">Transferir</button>
       <button class="botao-acao" onclick="botaoVoltar()">Voltar</button>
     </div>
   </div>
