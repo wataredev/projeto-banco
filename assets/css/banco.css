@@ -165,3 +165,21 @@ textarea:focus {
     font-size: 3rem;
     line-height: 5;
 }
+
+.transferencia-input{
+    width: 400px;
+    height: 60px;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 10px;
+}
+
+.transferencia-input::placeholder {
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 5;
+}
+
+.container-transferir {
+    gap: 30px;
+}
